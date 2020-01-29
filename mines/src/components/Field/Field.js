@@ -1,11 +1,13 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import styles from './style';
+import Mine from '../Mine';
 
-const prepareStyles = fieldOpened => {
+const prepareStyles = (fieldOpened, exploded) => {
   const componentStyles = [styles.field];
 
   if (fieldOpened) componentStyles.push(styles.opened);
+  if (exploded) componentStyles.push(styles.exploded);
   if (componentStyles.length === 1) componentStyles.push(styles.regular);
 
   return componentStyles;
@@ -22,18 +24,27 @@ const showNumberForNearMines = (isMined, opened, nearMines) => {
   return !isMined && opened && nearMines > 0;
 };
 
+const renderNumberInsideField = (isMined, opened, nearMines) => {
+  return showNumberForNearMines(isMined, opened, nearMines) ? (
+    <Text style={[styles.label, {color: getMineColor(nearMines)}]}>
+      {nearMines}
+    </Text>
+  ) : (
+    false
+  );
+};
+
+const renderMineInsideField = (isMined, opened) => {
+  return isMined && opened ? <Mine /> : false;
+};
+
 export default props => {
-  const {isMined, opened, nearMines} = props;
-  const componentStyles = prepareStyles(opened);
+  const {isMined, opened, nearMines, exploded} = props;
+  const componentStyles = prepareStyles(opened, exploded);
   return (
     <View style={componentStyles}>
-      {showNumberForNearMines(isMined, opened, nearMines) ? (
-        <Text style={[componentStyles.label, {color: getMineColor(nearMines)}]}>
-          {nearMines}
-        </Text>
-      ) : (
-        false
-      )}
+      {renderNumberInsideField(isMined, opened, nearMines)}
+      {renderMineInsideField(isMined, opened)}
     </View>
   );
 };

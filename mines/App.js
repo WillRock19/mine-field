@@ -14,7 +14,8 @@ export default class App extends Component {
       <View style={styles.container}>
         <Text style={styles.welcome}>Loading Mine's game...</Text>
         <Text style={styles.instructions}>
-          Size of the battlefield: {params.getRowAmount()}x{params.getColumnAmount()}
+          Size of the battlefield: {params.getRowAmount()}x
+          {params.getColumnAmount()}
         </Text>
         <Field />
         <Field opened />
@@ -22,6 +23,8 @@ export default class App extends Component {
         <Field opened nearMines={2} />
         <Field opened nearMines={3} />
         <Field opened nearMines={6} />
+        <Field isMined opened />
+        <Field isMined opened exploded />
       </View>
     );
   }
