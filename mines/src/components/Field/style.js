@@ -24,8 +24,8 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     fontSize: params.fontSize,
   },
-  exploded:{
+  exploded: {
     backgroundColor: 'red',
     borderColor: 'red',
-  }
+  },
 });
