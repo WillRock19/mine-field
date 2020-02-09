@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 
 import params from './src/params';
-import Field from './src/components/Field';
 import MineField from './src/components/MineField';
 import {createMinedBoard} from './src/services/boardManagerService';
 
