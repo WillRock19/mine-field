@@ -8,8 +8,8 @@ const createBoard = (rows, columns) => {
           return {
             column,
             row: row,
-            flagged: false,
-            mined: false,
+            hasFlag: false,
+            isMined: false,
             opened: false,
             nearMines: 0,
           };
