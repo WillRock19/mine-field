@@ -21,9 +21,18 @@
     "eslint": "^6.5.1",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.56.0",
+    "react-native-mock-render": "^0.1.8",
     "react-test-renderer": "16.9.0"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "setupFiles": ["./__tests__/tests-setup.js"],
+    "testPathIgnorePatterns": [
+      "./android/", "./ios/", "./node_modules/"
+      ],
+    "testMatch": [
+      "**/?(*.)(spec).js?(x)"
+      ],
+      "testEnvironment": "node"
   }
 }
