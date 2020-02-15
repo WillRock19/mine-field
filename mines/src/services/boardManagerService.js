@@ -101,19 +101,20 @@ const openField = (board, rowToLook, columnToLook) => {
   }
 };
 
-const fields = board => [].concat(...board);
+const fieldsFromBoard = board => [].concat(...board);
 
 const hadExplosion = board =>
-  fields(board).filter(field => field.exploded).length > 0;
+  fieldsFromBoard(board).filter(field => field.exploded).length > 0;
 
-const pendding = field => {
+const fieldIsPendding = field => {
   (field.isMined && !field.hasFlag) || (!field.isMined && !field.opened);
 };
 
-const playerWonGame = board => fields(board).filter(pendding).length === 0;
+const playerWonGame = board =>
+  fieldsFromBoard(board).filter(fieldIsPendding).length === 0;
 
 const showAllMines = board =>
-  fields(board)
+  fieldsFromBoard(board)
     .filter(field => field.isMined)
     .forEach(field => field.opened === true);
 
