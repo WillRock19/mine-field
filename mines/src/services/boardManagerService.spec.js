@@ -1,5 +1,5 @@
 describe('BoardManagerService', () => {
   it('tests should be runned', () => {
-    expect(true).toBe(true);
+    expect(false).toBe(true);
   });
 });
