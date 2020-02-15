@@ -1,9 +1,16 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, Alert} from 'react-native';
 
 import params from './src/params';
 import MineField from './src/components/MineField';
-import {createMinedBoard} from './src/services/boardManagerService';
+import {
+  createMinedBoard,
+  cloneBoard,
+  openField,
+  playerWonGame,
+  showAllMines,
+  hadExplosion,
+} from './src/services/boardManagerService';
 
 export default class App extends Component {
   constructor(props) {
@@ -23,7 +30,27 @@ export default class App extends Component {
 
     return {
       board: createMinedBoard(rows, columns, this.minesAmount()),
+      playerWon: false,
+      playerLost: false,
     };
+  };
+
+  onOpenField = (row, column) => {
+    const boardClone = cloneBoard(this.state.board);
+    openField(boardClone, row, column);
+
+    const playerLost = hadExplosion(boardClone);
+    const playerWon = playerWonGame(boardClone);
+
+    if (playerLost) {
+      Alert.alert('You snease, you lose!', 'Poor little sunshine...');
+    }
+
+    if (playerWon) {
+      Alert.alert('It seems we underestimated you...', 'Damn you Nappa!!!');
+    }
+
+    this.setState({board: boardClone, playerLost, playerWon});
   };
 
   render() {
@@ -35,7 +62,7 @@ export default class App extends Component {
           {params.getColumnAmount()}
         </Text>
         <View style={styles.board}>
-          <MineField board={this.state.board} />
+          <MineField board={this.state.board} onOpenField={this.onOpenField} />
         </View>
       </View>
     );

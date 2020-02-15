@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableWithoutFeedback} from 'react-native';
 
 import styles from './style';
 import Mine from '../Mine';
@@ -49,10 +49,12 @@ export default props => {
   const {isMined, opened, nearMines, exploded, hasFlag} = props;
   const componentStyles = prepareStyles(opened, exploded, hasFlag);
   return (
-    <View style={componentStyles}>
-      {renderNumberInsideField(isMined, opened, nearMines)}
-      {renderMineInsideField(isMined, opened)}
-      {renderFlagInsideField(hasFlag, opened)}
-    </View>
+    <TouchableWithoutFeedback onPress={props.onOpen}>
+      <View style={componentStyles}>
+        {renderNumberInsideField(isMined, opened, nearMines)}
+        {renderMineInsideField(isMined, opened)}
+        {renderFlagInsideField(hasFlag, opened)}
+      </View>
+    </TouchableWithoutFeedback>
   );
 };

@@ -27,8 +27,8 @@ const spreadMines = (board, minesAmount) => {
     const randomSelectedRow = parseInt(Math.random() * rows, 10);
     const randomSelectedColumn = parseInt(Math.random() * columns, 10);
 
-    if (!board[randomSelectedRow][randomSelectedColumn].mined) {
-      board[randomSelectedRow][randomSelectedColumn].mined = true;
+    if (!board[randomSelectedRow][randomSelectedColumn].isMined) {
+      board[randomSelectedRow][randomSelectedColumn].isMined = true;
       minesPlanted++;
     }
   }

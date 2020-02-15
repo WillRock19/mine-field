@@ -4,9 +4,15 @@ import {View} from 'react-native';
 import styles from './styles';
 import Field from '../Field';
 
-const renderColumns = (row, rowIndex) => {
+const renderColumns = (row, rowIndex, onOpenField) => {
   const columns = row.map((fieldInformation, fieldIndex) => {
-    return <Field {...fieldInformation} key={fieldIndex} />;
+    return (
+      <Field
+        {...fieldInformation}
+        key={fieldIndex}
+        onOpen={() => onOpenField(rowIndex, fieldIndex)}
+      />
+    );
   });
 
   return (
@@ -16,17 +22,17 @@ const renderColumns = (row, rowIndex) => {
   );
 };
 
-const renderRowsWithColumns = board => {
+const renderRowsWithColumns = (board, onOpenField) => {
   return board.map((row, rowIndex) => {
-    return renderColumns(row, rowIndex);
+    return renderColumns(row, rowIndex, onOpenField);
   });
 };
 
-const renderField = board => {
-  const rowsWithColumns = renderRowsWithColumns(board);
+const renderField = props => {
+  const rowsWithColumns = renderRowsWithColumns(props.board, props.onOpenField);
   return <View style={styles.container}>{rowsWithColumns}</View>;
 };
 
 export default props => {
-  return renderField(props.board);
+  return renderField(props);
 };
