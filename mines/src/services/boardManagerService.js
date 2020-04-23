@@ -23,7 +23,7 @@ const spreadMines = (board, minesAmount) => {
   const columns = board[0].length;
   let minesPlanted = 0;
 
-  while (minesPlanted <= minesAmount) {
+  while (minesPlanted < minesAmount) {
     const randomSelectedRow = parseInt(Math.random() * rows, 10);
     const randomSelectedColumn = parseInt(Math.random() * columns, 10);
 
@@ -106,9 +106,8 @@ const fieldsFromBoard = board => [].concat(...board);
 const hadExplosion = board =>
   fieldsFromBoard(board).filter(field => field.exploded).length > 0;
 
-const fieldIsPendding = field => {
+const fieldIsPendding = field =>
   (field.isMined && !field.hasFlag) || (!field.isMined && !field.opened);
-};
 
 const playerWonGame = board =>
   fieldsFromBoard(board).filter(fieldIsPendding).length === 0;

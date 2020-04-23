@@ -50,7 +50,7 @@ export default props => {
   const componentStyles = prepareStyles(opened, exploded, hasFlag);
   return (
     <TouchableWithoutFeedback onPress={props.onOpen}>
-      <View style={componentStyles}>
+      <View style={componentStyles} testID="field-value">
         {renderNumberInsideField(isMined, opened, nearMines)}
         {renderMineInsideField(isMined, opened)}
         {renderFlagInsideField(hasFlag, opened)}
