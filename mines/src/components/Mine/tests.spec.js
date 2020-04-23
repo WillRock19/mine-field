@@ -1,5 +1,13 @@
+import 'jsdom-global/register';
+import 'react-native';
+import React from 'react';
+import renderer from 'react-test-renderer';
+import Mine from './Mine';
+
 describe('Mine', () => {
-  it('tests should be runned', () => {
-    expect(true).toBe(true);
+  it.only('tests should be runned', () => {
+    renderer.create(<Mine />);
   });
+
+    //TODO: Implementar um teste de snapshot para verificar se a mina está como esperamos
 });
