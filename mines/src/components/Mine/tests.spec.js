@@ -5,9 +5,12 @@ import renderer from 'react-test-renderer';
 import Mine from './Mine';
 
 describe('Mine', () => {
-  it.only('tests should be runned', () => {
+  it('tests should be runned', () => {
     renderer.create(<Mine />);
   });
 
-    //TODO: Implementar um teste de snapshot para verificar se a mina está como esperamos
+  it('should have the expected structure and style', () => {
+    let snapshotTree = renderer.create(<Mine />).toJSON();
+    expect(snapshotTree).toMatchSnapshot();
+  });
 });

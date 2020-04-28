@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component Flag should have expected structure and styling 1`] = `
+"<_default>
+  <View style={{...}}>
+    <View style={{...}}>
+      <View style={{...}}>
+        <View style={{...}} />
+      </View>
+      <View style={{...}}>
+        <View style={{...}} />
+      </View>
+      <View style={{...}}>
+        <View style={{...}} />
+      </View>
+      <View style={{...}}>
+        <View style={{...}} />
+      </View>
+    </View>
+  </View>
+</_default>"
+`;

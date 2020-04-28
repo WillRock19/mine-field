@@ -2,7 +2,7 @@ import 'jsdom-global/register';
 import 'react-native';
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
-import Enzyme, {shallow} from 'enzyme';
+import Enzyme, {shallow, mount} from 'enzyme';
 import Flag from './Flag';
 
 Enzyme.configure({adapter: new Adapter()});
@@ -13,5 +13,8 @@ describe('Component Flag', () => {
     expect(wrapper.exists()).toBeTruthy();
   });
 
-  //TODO: Implementar um teste de snapshot para verificar se a bandeira está como esperamos
+  it.only('should have expected structure and styling', () => {
+    const wrapper = mount(<Flag />);
+    expect(wrapper.debug()).toMatchSnapshot();
+  });
 });

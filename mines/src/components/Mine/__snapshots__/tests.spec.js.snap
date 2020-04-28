@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mine should have the expected structure and style 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "black",
+        "borderRadius": 10,
+        "height": 14,
+        "width": 14,
+      }
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "black",
+          "borderRadius": 3,
+          "height": 3,
+          "position": "absolute",
+          "width": 20,
+        },
+        Object {
+          "transform": Array [
+            Object {
+              "rotate": "45deg",
+            },
+          ],
+        },
+      ]
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "black",
+          "borderRadius": 3,
+          "height": 3,
+          "position": "absolute",
+          "width": 20,
+        },
+        Object {
+          "transform": Array [
+            Object {
+              "rotate": "90deg",
+            },
+          ],
+        },
+      ]
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "black",
+          "borderRadius": 3,
+          "height": 3,
+          "position": "absolute",
+          "width": 20,
+        },
+        Object {
+          "transform": Array [
+            Object {
+              "rotate": "135deg",
+            },
+          ],
+        },
+      ]
+    }
+  />
+</View>
+`;
